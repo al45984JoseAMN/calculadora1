@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        .datos-de-entrada {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .botones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover { background-color: #0056b3; }
+
+        .resultado {
+            margin-top: 20px;
+        }
+
+        #resultado {
+            width: 100%;
+            background-color: #e9ecef;
+            text-align: center;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+        
+        .container{ animation: aura 1.5s infinite alternate; border: 3px solid #00c8ff; }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+    <div class="datos-de-entrada">  
+    <input type="text" name="numero1" id="numero1">
+    <input type="text" name="numero2" id="numero2">
+    </div>
+
+    <div class="botones">
+    <button id="sumar">Sumar</button>
+    <button id="restar">Restar</button>
+    <button id="multiplicar">Multiplicar</button>
+    <button id="dividir">Dividir</button>
+    <!-- <button id="potencia">Potencia</button>
+    <button id="residuo">Residuo</button> -->
+    </div>
+
+    <div class="resultado">
+    <input type="text" name="resultado" id="resultado" readonly>
+    </div>
+
+    <script>
+         function operacionSumar() {
+
+             if(numero1 > numero2)//La evalucion de la condicion es verdadera
+             //si no es verdadera  entra el else
+            {
+                /*
+                operadores condicionales:
+                > mayor que
+                < menor que
+                >= mayor o igual que
+                <= menor o igual que
+                == igual que
+                != diferente que
+                */
+               /*
+            /*------------------------------------------------------------------------------------------*/
+            /*   
+               operadores operacionales:
+                + suma
+                - resta
+                * multiplicacion
+                / division
+                ??? exponencial
+                ??? obtener residuo
+               */
+                alert("El primer numero es mayor que el segundo");
+            }
+            var numero1 = 0;
+            var numero2 = 0;
+
+            numero1 = document.getElementById("numero1").value;
+            numero2 = document.getElementById("numero2").value;
+
+
+            var resultado = (Number(numero1)) + (Number(numero2));
+            document.getElementById("resultado").value = resultado;
+
+           
+           
+        }
+        function operacionRestar(){
+
+    var numero1 = Number(document.getElementById("numero1").value);
+    var numero2 = Number(document.getElementById("numero2").value);
+
+    var resultado = numero1 - numero2;
+
+    document.getElementById("resultado").value = resultado;
+    }
+    function operacionMultiplicar(){
+
+    var numero1 = Number(document.getElementById("numero1").value);
+    var numero2 = Number(document.getElementById("numero2").value);
+
+    var resultado = numero1 * numero2;
+
+    document.getElementById("resultado").value = resultado;
+    }
+    function operacionDividir(){
+
+    var numero1 = Number(document.getElementById("numero1").value);
+    var numero2 = Number(document.getElementById("numero2").value);
+
+    if(numero2 == 0){
+        alert("No se puede dividir entre cero");
+        return;
+    }
+
+    var resultado = numero1 / numero2;
+
+    document.getElementById("resultado").value = resultado;
+    }
+    document.getElementById("sumar").addEventListener("click", operacionSumar);
+
+    document.getElementById("restar").addEventListener("click", operacionRestar);
+
+    document.getElementById("multiplicar").addEventListener("click", operacionMultiplicar);
+
+    document.getElementById("dividir").addEventListener("click", operacionDividir);
+
+    document.getElementById("potencia").addEventListener("click", operacionPotencia);
+
+    document.getElementById("residuo").addEventListener("click", operacionResiduo);
+      
+
+        var btnsumar = document.getElementById("sumar");
+        btnsumar.addEventListener("click", operacionSumar);
+    </script>
+</body>
+</html>
